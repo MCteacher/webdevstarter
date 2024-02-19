@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nerd Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Nerd Club</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('hello_world') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('events') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Events
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Webinars</a></li>
+                                <li><a class="dropdown-item" href="#">In-person events</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- hero Section -->
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6 my-5">
+                    <h2>Events</h2>
+                    <p>Check out our upcoming events. </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/static/Grounds 3.JPG" alt="Placeholder Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <!-- grey background strip -->
+        <div class="container-fluid bg-light text-dark p-5">
+            <div class="row">
+                <div class="col-md-12 mx-5">
+                    <h2>Welcome Message</h2>
+                    <p>Welcome to our website. We are glad to have you here.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- News event split -->
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Firefly Marathon</h1>
+                    <h3>February, 20, 2024</h3>
+                    <p>Join us for a Firefly Marathon! We'll be watching all episodes of the beloved sci-fi series
+                        "Firefly". Set in the year 2517, Firefly explores the lives of the crew of Serenity, a
+                        "Firefly-class" spaceship. The series is known for its unique blend of western and space
+                        frontier themes. Don't miss out on this opportunity to revisit this cult classic with fellow
+                        fans!</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://i.insider.com/54206c5eeab8ea25544b6b64?width=750&format=jpeg&auto=webp"
+                        alt="Firefly TV Series Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://i.cbc.ca/1.6804187.1680806791!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/dungeons-dragons-gatherings-online-and-in-person.jpg"
+                        alt="Firefly TV Series Image" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h1>Dungeons and Dragons Evening</h1>
+                    <h3>February, 27, 2024</h3>
+                    <p>Join us for a thrilling Dungeons and Dragons Event Night! Whether you're an experienced
+                        adventurer or a first-time player, this is the perfect opportunity to dive into the world of
+                        D&D. We'll embark on an epic quest filled with danger, mystery, and camaraderie. Bring your
+                        creativity and strategic thinking for a night of unforgettable storytelling and fun. Don't miss
+                        out on this exciting adventure!</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
