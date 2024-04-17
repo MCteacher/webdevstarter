@@ -77,3 +77,12 @@ connie.execute('''
                 type TEXT
                 )
             ''')
+
+connie.execute('''
+                CREATE TABLE IF NOT EXISTS patronus(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                characterID INTEGER, 
+                animal TEXT,
+                learnt INTEGER
+                )
+               ''')
