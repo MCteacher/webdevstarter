@@ -141,5 +141,10 @@ connie.execute(
 connie.execute(
     'INSERT INTO rooms(name, capacity, type) VALUES("Owlery", 10, "Services")')
 
+connie.execute('INSERT INTO patronus(characterID, animal, learnt) VALUES (1, "Stag", 1)')
+connie.execute('INSERT INTO patronus(characterID, animal, learnt) VALUES (2, "Otter", 1)')
+connie.execute('INSERT INTO patronus(characterID, animal, learnt) VALUES (3, "Jack Russell Terrier", 1)')
+connie.execute('INSERT INTO patronus(characterID, animal, learnt) VALUES (4, "Eagle", 1)')
+connie.execute('INSERT INTO patronus(characterID, animal, learnt) VALUES (5, "Hare", 1)')
 
 connie.commit()
