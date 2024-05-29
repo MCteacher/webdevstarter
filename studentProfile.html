@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="card" 
+        {% if studentHouse=='Gryffindor' %} 
+        style="width: 100%; border-top: 10px solid #800000;" 
+        {% endif %}
+        {% if studentHouse=='Slytherin' %} 
+        style="width: 100%; border-top: 10px solid #006400;" 
+        {% endif %}
+    
+    >
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h1 class="card-title">{{ studentName }}</h1>
+            <h2>Year: {{ studentYear }}</h2>
+            <h2>Patronus: {{ studentPatronus }}</h2>
+            <p class="card-text">{{ studentName }} is a character in Harry Potter who is in {{ studentHouse }} house.
+            </p>
+            {% if studentPatronus %}
+            <p class="card-text">This character's patronus is a {{ studentPatronus }}. </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
