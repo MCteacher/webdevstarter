@@ -1,9 +1,4 @@
 import sqlite3
-import os
-
-# delete uniform_shop.db if it exists
-if os.path.exists('uniform_shop.db'):
-    os.remove('uniform_shop.db')
 
 # Connect to the SQLite database
 conn = sqlite3.connect('uniform_shop.db')
