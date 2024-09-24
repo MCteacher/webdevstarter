@@ -1,4 +1,9 @@
 import sqlite3
+import os
+
+# delete uniform_shop.db if it exists
+if os.path.exists('uniform_shop.db'):
+    os.remove('uniform_shop.db')
 
 # Connect to the SQLite database
 conn = sqlite3.connect('uniform_shop.db')
@@ -6,7 +11,7 @@ cursor = conn.cursor()
 
 # Create Students table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Students (
+    CREATE TABLE IF NOT EXISTS students (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         first_name TEXT NOT NULL,
         surname TEXT NOT NULL,
@@ -27,7 +32,7 @@ cursor.execute('''
 
 # Create Employees table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Employees (
+    CREATE TABLE IF NOT EXISTS employees (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         first_name TEXT NOT NULL,
         surname TEXT NOT NULL,
@@ -40,7 +45,7 @@ cursor.execute('''
 
 # Create Inventory table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Inventory (
+    CREATE TABLE IF NOT EXISTS inventory (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         type_id INTEGER,
@@ -48,27 +53,24 @@ cursor.execute('''
         price REAL NOT NULL,
         in_stock INTEGER NOT NULL,
         shelf_location TEXT,
-        image TEXT,
-        FOREIGN KEY (type_id) REFERENCES InventoryTypes(id)
+        image TEXT
     )
 ''')
 
 # Create Invoices table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Invoices (
+    CREATE TABLE IF NOT EXISTS invoices (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         purchaser INTEGER NOT NULL,
         served_by INTEGER NOT NULL,
         date DATE NOT NULL,
-        time TIME NOT NULL,
-        FOREIGN KEY (purchaser) REFERENCES Students(id),
-        FOREIGN KEY (served_by) REFERENCES Employees(id)
+        time TIME NOT NULL
     )
 ''')
 
 # Create Invoice items table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS InvoiceItems (
+    CREATE TABLE IF NOT EXISTS invoiceItems (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         invoice_id INTEGER NOT NULL,
         item_id INTEGER NOT NULL,
@@ -76,15 +78,13 @@ cursor.execute('''
         item_price REAL NOT NULL,
         item_discount_to REAL,
         paid BOOLEAN,
-        payment_method TEXT,
-        FOREIGN KEY (invoice_id) REFERENCES Invoices(id),
-        FOREIGN KEY (item_id) REFERENCES Inventory(id)
+        payment_method TEXT
     )
 ''')
 
 # Create InventoryTypes table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS InventoryTypes (
+    CREATE TABLE IF NOT EXISTS inventoryTypes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         description TEXT
@@ -93,7 +93,7 @@ cursor.execute('''
 
 # Create Suppliers table
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS Suppliers (
+    CREATE TABLE IF NOT EXISTS suppliers (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         contact_name TEXT,
