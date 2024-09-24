@@ -1,21 +1,22 @@
 import sqlite3
+import os
 
 # Connect to the SQLite database
 conn = sqlite3.connect('uniform_shop.db')
 cursor = conn.cursor()
 
 # Delete existing records from all tables
-cursor.execute('DELETE FROM Students')
-cursor.execute('DELETE FROM Employees')
-cursor.execute('DELETE FROM Inventory')
-cursor.execute('DELETE FROM Invoices')
-cursor.execute('DELETE FROM InvoiceItems')
-cursor.execute('DELETE FROM InventoryTypes')
-cursor.execute('DELETE FROM Suppliers')
+cursor.execute('DELETE FROM students')
+cursor.execute('DELETE FROM employees')
+cursor.execute('DELETE FROM inventory')
+cursor.execute('DELETE FROM invoices')
+cursor.execute('DELETE FROM invoiceItems')
+cursor.execute('DELETE FROM inventoryTypes')
+cursor.execute('DELETE FROM suppliers')
 
-# Insert dummy data into Students table
+# Insert dummy data into students table
 cursor.executemany('''
-    INSERT INTO Students (first_name, surname, year, house, boarder, date_of_entry, date_of_birth, address1, address2, address3, suburb, state, postcode, is_active)
+    INSERT INTO students (first_name, surname, year, house, boarder, date_of_entry, date_of_birth, address1, address2, address3, suburb, state, postcode, is_active)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ''', [
     ('Ada', 'Lovelace', 10, 'Red', True, '2020-01-15', '2005-12-10',
@@ -44,9 +45,9 @@ cursor.executemany('''
      '909 Cypress St', '', '', 'Springfield', 'IL', '62701', True)
 ])
 
-# Insert dummy data into Employees table
+# Insert dummy data into employees table
 cursor.executemany('''
-    INSERT INTO Employees (first_name, surname, code, category, is_volunteer, is_active)
+    INSERT INTO employees (first_name, surname, code, category, is_volunteer, is_active)
     VALUES (?, ?, ?, ?, ?, ?)
 ''', [
     ('Clark', 'Kent', 'E001', 'Shelf Stacker', False, True),
@@ -58,9 +59,9 @@ cursor.executemany('''
     ('Peter', 'Parker', 'E007', 'Call Operator', False, True)
 ])
 
-# Insert dummy data into InventoryTypes table
+# Insert dummy data into inventoryTypes table
 cursor.executemany('''
-    INSERT INTO InventoryTypes (name, description)
+    INSERT INTO inventoryTypes (name, description)
     VALUES (?, ?)
 ''', [
     ('Clothing', 'Various types of clothing items'),
@@ -69,9 +70,9 @@ cursor.executemany('''
     ('Safety Gear', 'Protective gear for safety purposes')
 ])
 
-# Insert dummy data into Inventory table
+# Insert dummy data into inventory table
 cursor.executemany('''
-    INSERT INTO Inventory (name, type_id, description, price, in_stock, shelf_location, image)
+    INSERT INTO inventory (name, type_id, description, price, in_stock, shelf_location, image)
     VALUES (?, ?, ?, ?, ?, ?, ?)
 ''', [
     ('School Blazer', 1, 'Standard school blazer', 75.00, 50, 'A1', None),
@@ -94,9 +95,9 @@ cursor.executemany('''
     ('EMP Device', 1, 'Disable electronics', 1000.00, 2, 'O15', None)
 ])
 
-# Insert dummy data into Invoices table
+# Insert dummy data into invoices table
 cursor.executemany('''
-    INSERT INTO Invoices (purchaser, served_by, date, time)
+    INSERT INTO invoices (purchaser, served_by, date, time)
     VALUES (?, ?, ?, ?)
 ''', [
     (1, 1, '2024-08-01', '09:30:00'),
@@ -105,9 +106,9 @@ cursor.executemany('''
     (4, 2, '2024-08-16', '11:34:00')
 ])
 
-# Insert dummy data into InvoiceItems table
+# Insert dummy data into invoiceItems table
 cursor.executemany('''
-    INSERT INTO InvoiceItems (invoice_id, item_id, item_name, item_price, item_discount_to, paid, payment_method)
+    INSERT INTO invoiceItems (invoice_id, item_id, item_name, item_price, item_discount_to, paid, payment_method)
     VALUES (?, ?, ?, ?, ?, ?, ?)
 ''', [
     (1, 1, 'School Blazer', 75.00, None, True, 'Card'),
@@ -119,9 +120,9 @@ cursor.executemany('''
     (4, 6, 'Notebook', 5.00, None, False, 'Cash')
 ])
 
-# Insert dummy data into Suppliers table
+# Insert dummy data into suppliers table
 cursor.executemany('''
-    INSERT INTO Suppliers (name, contact_name, contact_email, contact_phone, address1, address2, suburb, state, postcode)
+    INSERT INTO suppliers (name, contact_name, contact_email, contact_phone, address1, address2, suburb, state, postcode)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 ''', [
     ('Stark Industries', 'Tony Stark', 'tony.stark@starkindustries.com',
