@@ -56,8 +56,8 @@ cursor.execute('''
         name TEXT NOT NULL,
         type_id INTEGER,
         description TEXT,
-        price REAL NOT NULL,
-        in_stock INTEGER NOT NULL,
+        price REAL,
+        in_stock INTEGER,
         shelf_location TEXT,
         image TEXT
     )
