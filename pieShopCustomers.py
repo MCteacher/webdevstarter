@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to SQLite database
-conn = sqlite3.connect("purchases.db")
+conn = sqlite3.connect("pieShop.db")
 cursor = conn.cursor()
 
 # Step 1: Create the customers table
